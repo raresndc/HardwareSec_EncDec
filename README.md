@@ -29,7 +29,9 @@ După completarea acestuia, veți adăuga restul literelor din alfabet, excluzâ
 
 Exemplu pentru MIHAI și litera “J”:
 
-![alt text](./images/table1.PNG)
+<p align="center">
+  <img src="./images/table1.PNG" alt="alt text">
+</p>
 
 2. Algoritmul de criptare:
 
@@ -41,7 +43,9 @@ Se însumează cu valoarea corespunzătoare din cuvântul secret (repetându-l p
 
 Exemplu pentru secretul „DAN” și textul clar „ISMASE”:
 
-![alt text](./images/table2.png)
+<p align="center">
+  <img src="./images/table2.PNG" alt="alt text">
+</p>
 
 3. Criptarea și decriptarea:
 
