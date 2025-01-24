@@ -22,7 +22,7 @@ o După completarea acestuia, veți adăuga restul literelor din alfabet, excluz
 literă la alegere pentru a se potrivi într-un tabel 5x5 (sunt 26 de caractere în 
 alfabet). 
 Exemplu pentru MIHAI și litera “J” 
- ![alt text](./table1.PNG)
+ ![alt text](./images/table1.PNG)
 2. Algoritmul de criptare: Fiecare student va u liza propriul nume de familie ca secret 
 pentru criptare. 
 o Fiecare literă din mesajul de criptat va fi căutată în tabelul personalizat, punctul 1, 
@@ -30,7 +30,7 @@ pentru a-i obține valoarea.
 o Se însumează cu valoarea corespunzătoare din cuvântul secret (repetându-l până 
 la lungimea textului). 
 Exemplu pentru secretul „DAN” textul clar „ISMASE” 
-![alt text](./table2.png)
+![alt text](./images/table2.png)
 3. [2 x 30p] Criptarea și decriptarea: Implementați atât funcționalitatea de criptare, cât și pe 
 cea de decriptare. Trebuie să creați două module separate: unul pentru criptare și unul 
 pentru decriptare, fiecare având o intrare de text (sau cipher text) și un cuvânt secret, iar 
