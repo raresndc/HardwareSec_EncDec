@@ -1,8 +1,8 @@
 `timescale 1ns/1ps
 
-module tb_enc_dec_repetitive;
+module tb_enc_dec_long_message;
 
-  parameter MSG_LEN = 20; // Length of the message
+  parameter MSG_LEN = 22; // Length of the message
   parameter SEC_LEN = 3;  // Length of the key
 
   logic [7:0] plain_text [0:MSG_LEN-1];
@@ -28,12 +28,13 @@ module tb_enc_dec_repetitive;
   );
 
   initial begin
-    // Initialize the plaintext with repetitive letters
-    plain_text[0] = "A"; plain_text[1] = "A"; plain_text[2] = "B"; plain_text[3] = "B";
-    plain_text[4] = "C"; plain_text[5] = "C"; plain_text[6] = "D"; plain_text[7] = "D";
-    plain_text[8] = "E"; plain_text[9] = "E"; plain_text[10] = "A"; plain_text[11] = "A";
-    plain_text[12] = "B"; plain_text[13] = "B"; plain_text[14] = "C"; plain_text[15] = "C";
-    plain_text[16] = "D"; plain_text[17] = "D"; plain_text[18] = "E"; plain_text[19] = "E";
+    // Initialize the plaintext with the message "HELLOTHISISATESTMESSAGE"
+    plain_text[0] = "H"; plain_text[1] = "E"; plain_text[2] = "L"; plain_text[3] = "L"; plain_text[4] = "O";
+    plain_text[5] = "T"; plain_text[6] = "H"; plain_text[7] = "I"; plain_text[8] = "S";
+    plain_text[9] = "I"; plain_text[10] = "S"; plain_text[11] = "A";
+    plain_text[12] = "T"; plain_text[13] = "E"; plain_text[14] = "S"; plain_text[15] = "T";
+    plain_text[16] = "M"; plain_text[17] = "E"; plain_text[18] = "S"; plain_text[19] = "S";
+    plain_text[20] = "A"; plain_text[21] = "G";
 
     #10;
 
@@ -49,9 +50,9 @@ module tb_enc_dec_repetitive;
     // Display the decrypted message
     $display("Decrypted message:");
     foreach (decrypted_text[i]) begin
-      $write("%c ", decrypted_text[i]); // Print decrypted characters
+      $write("%c", decrypted_text[i]); // Print decrypted characters
     end
-    $display("");
+    $display(""); // Move to the next line
 
     $stop;
   end
