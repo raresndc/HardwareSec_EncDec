@@ -8,8 +8,10 @@ module mixed_case_tb;
 
     // Wires and registers
     reg [7:0] plaintext[0:MSG_LEN-1];  // Input plaintext
+    reg case_map[0:MSG_LEN-1];         // Case mapping: 1 if uppercase, 0 if lowercase
     wire [7:0] encrypted[0:MSG_LEN-1]; // Encrypted output
     wire [7:0] decrypted[0:MSG_LEN-1]; // Decrypted output
+    reg [7:0] final_decrypted[0:MSG_LEN-1]; // Temporary register to store modified decrypted text
 
     // Encryption and decryption modules
     encryptor #(MSG_LEN, SEC_LEN) encrypt_inst(
@@ -44,21 +46,29 @@ module mixed_case_tb;
         plaintext[3] = "l";
         plaintext[4] = "o";
         plaintext[5] = "W";
-
-        // Convert mixed case plaintext to uppercase
+        
+        $display("Original plaintext:");
         for (i = 0; i < MSG_LEN; i = i + 1) begin
+            $write("%c", plaintext[i]);
+        end
+        $display("");
+
+        // Track case and convert to uppercase
+        for (i = 0; i < MSG_LEN; i = i + 1) begin
+            case_map[i] = (plaintext[i] >= "A" && plaintext[i] <= "Z") ? 1 : 0; // 1 if uppercase
             plaintext[i] = to_uppercase(plaintext[i]);
         end
 
         // Wait for encryption and decryption to complete
         #10;
 
-        // Print results
-        $display("Original plaintext:");
+        // Restore original case after decryption
         for (i = 0; i < MSG_LEN; i = i + 1) begin
-            $write("%c", plaintext[i]);
+            final_decrypted[i] = decrypted[i]; // Copy decrypted value
+            if (!case_map[i]) begin
+                final_decrypted[i] = final_decrypted[i] + 8'd32; // Convert back to lowercase
+            end
         end
-        $display("");
 
         $display("Encrypted text:");
         for (i = 0; i < MSG_LEN; i = i + 1) begin
@@ -68,7 +78,7 @@ module mixed_case_tb;
 
         $display("Decrypted text:");
         for (i = 0; i < MSG_LEN; i = i + 1) begin
-            $write("%c", decrypted[i]);
+            $write("%c", final_decrypted[i]);
         end
         $display("");
 
