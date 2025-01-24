@@ -3,7 +3,7 @@ module encryptor #(
     parameter SEC_LEN   // Length of the key
 )(
     input  [7:0] text_in[0:MSG_LEN-1], // Plaintext input
-    output reg [7:0] text_out[0:MSG_LEN-1] // Encrypted text output
+    output reg [7:0] text_out[0:MSG_LEN-1] // Encrypted text output (16 bits to support larger values)
 );
 
     reg [7:0] sub_table[1:5][1:5];
@@ -44,18 +44,20 @@ module encryptor #(
 
     always @* begin
         for (i = 0; i < MSG_LEN; i = i + 1) begin
-            // Get plaintext and key positions
-            pos_text = get_position(text_in[i]);
-            r_text = pos_text[7:4];
-            c_text = pos_text[3:0];
-            
             pos_sec = get_position(secret[i % SEC_LEN]);
             r_sec = pos_sec[7:4];
             c_sec = pos_sec[3:0];
-
-            // Convert row-column into a single number and add
-            text_out[i] = (r_text * 10 + c_text) + (r_sec * 10 + c_sec);
+            if ((text_in[i] < "A" || text_in[i] > "Z") &&
+                (text_in[i] < "a" || text_in[i] > "z")) begin
+                // Special character: add ASCII value to key position
+                text_out[i] = text_in[i] + (r_sec * 10 + c_sec);
+            end else begin
+                // Normal character: use substitution table
+                pos_text = get_position(text_in[i]);
+                r_text = pos_text[7:4];
+                c_text = pos_text[3:0];
+                text_out[i] = (r_text * 10 + c_text) + (r_sec * 10 + c_sec);
+            end
         end
     end
-
 endmodule

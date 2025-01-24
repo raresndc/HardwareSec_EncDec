@@ -60,4 +60,4 @@ Exemplu pentru secretul „DAN” și textul clar „ISMASE”:
 
 6. Criptarea caracterelor speciale:
 
-Adăugați mecanisme pentru a cripta și caractere speciale (ex. spațiu, “$”, “#”, etc.). Puteți modifica în orice formă doriți codul dvs. Demonstrați funcționalitatea prin adăugarea de testbench-uri corespunzătoare.
+✅ Adăugați mecanisme pentru a cripta și caractere speciale (ex. spațiu, “$”, “#”, etc.). Puteți modifica în orice formă doriți codul dvs. Demonstrați funcționalitatea prin adăugarea de testbench-uri corespunzătoare.
