@@ -58,7 +58,7 @@ Trebuie să creați minim 10 testbench-uri (5 pentru criptare, 5 pentru decripta
 
 Criptarea literelor mari și mici:
 
-Adăugați mecanisme pentru a cripta litere mari și mici fără a modifica tabelul personalizat creat la punctul 1. Demonstrați funcționalitatea prin adăugarea de testbench-uri corespunzătoare.
+✅ Adăugați mecanisme pentru a cripta litere mari și mici fără a modifica tabelul personalizat creat la punctul 1. Demonstrați funcționalitatea prin adăugarea de testbench-uri corespunzătoare.
 
 Criptarea caracterelor speciale:
 
