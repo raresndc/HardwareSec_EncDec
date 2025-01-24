@@ -44,7 +44,7 @@ Se însumează cu valoarea corespunzătoare din cuvântul secret (repetându-l p
 Exemplu pentru secretul „DAN” și textul clar „ISMASE”:
 
 <p align="center">
-  <img src="./images/table2.PNG" alt="alt text">
+  <img src="./images/table2.png" alt="alt text">
 </p>
 
 3. Criptarea și decriptarea:
