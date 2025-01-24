@@ -3,7 +3,7 @@
 module tb_single_letter;
 
   parameter MSG_LEN = 1; // Single letter to encrypt and decrypt
-  parameter SEC_LEN = 3; // Length of the key
+  parameter SEC_LEN = 7; // Length of the key
 
   logic [7:0] plain_text [0:MSG_LEN-1];
   logic [7:0] encrypted_text [0:MSG_LEN-1];

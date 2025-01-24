@@ -4,7 +4,7 @@ module special_characters_tb;
 
     // Parameters
     parameter MSG_LEN = 6;
-    parameter SEC_LEN = 3;
+    parameter SEC_LEN = 7;
 
     // Wires and registers
     reg [7:0] plaintext[0:MSG_LEN-1];  // Input plaintext

@@ -1,8 +1,8 @@
 `timescale 1ns/1ps
 
-module tb_word_enc_dec;
+module tb_enc_dec_name;
 
-  parameter MSG_LEN = 6;
+  parameter MSG_LEN = 7;
   parameter SEC_LEN = 7;
 
   reg [7:0] plain_text [0:MSG_LEN-1];
@@ -30,13 +30,14 @@ module tb_word_enc_dec;
   integer i;
 
   initial begin
-    // Initialize the plain text (example: "HELLOW")
-    plain_text[0] = "H";
+    // Initialize the plain text (example: "NEDELCU")
+    plain_text[0] = "N";
     plain_text[1] = "E";
-    plain_text[2] = "L";
-    plain_text[3] = "L";
-    plain_text[4] = "O";
-    plain_text[5] = "W";
+    plain_text[2] = "D";
+    plain_text[3] = "E";
+    plain_text[4] = "L";
+    plain_text[5] = "C";
+    plain_text[6] = "U";
 
     #10;
 

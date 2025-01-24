@@ -1,6 +1,6 @@
 module decryptor #(
-    parameter MSG_LEN = 6,  // Number of characters in the ciphertext
-    parameter SEC_LEN = 3   // Length of the key
+    parameter MSG_LEN,  // Number of characters in the ciphertext
+    parameter SEC_LEN   // Length of the key
 )(
     input  [7:0] text_in[0:MSG_LEN-1],  // Encrypted text input
     output reg [7:0] text_out[0:MSG_LEN-1] // Decrypted text output (plaintext)
@@ -11,14 +11,16 @@ module decryptor #(
 
     // Initialize the table and key
     initial begin
-        sub_table[1][1] = "M";  sub_table[1][2] = "I";  sub_table[1][3] = "H";  sub_table[1][4] = "A";  sub_table[1][5] = "B";
-        sub_table[2][1] = "C";  sub_table[2][2] = "D";  sub_table[2][3] = "E";  sub_table[2][4] = "F";  sub_table[2][5] = "G";
-        sub_table[3][1] = "K";  sub_table[3][2] = "L";  sub_table[3][3] = "N";  sub_table[3][4] = "O";  sub_table[3][5] = "P";
-        sub_table[4][1] = "Q";  sub_table[4][2] = "R";  sub_table[4][3] = "S";  sub_table[4][4] = "T";  sub_table[4][5] = "U";
+        sub_table[1][1] = "R";  sub_table[1][2] = "A";  sub_table[1][3] = "E";  sub_table[1][4] = "S";  sub_table[1][5] = "B";
+        sub_table[2][1] = "C";  sub_table[2][2] = "D";  sub_table[2][3] = "F";  sub_table[2][4] = "G";  sub_table[2][5] = "H";
+        sub_table[3][1] = "I";  sub_table[3][2] = "K";  sub_table[3][3] = "L";  sub_table[3][4] = "M";  sub_table[3][5] = "N";
+        sub_table[4][1] = "O";  sub_table[4][2] = "P";  sub_table[4][3] = "Q";  sub_table[4][4] = "T";  sub_table[4][5] = "U";
         sub_table[5][1] = "V";  sub_table[5][2] = "W";  sub_table[5][3] = "X";  sub_table[5][4] = "Y";  sub_table[5][5] = "Z";
 
         // Initialize key
-        secret[0] = "K"; secret[1] = "E"; secret[2] = "Y";
+        secret[0] = "N"; secret[1] = "E"; secret[2] = "D";
+        secret[3] = "E"; secret[4] = "L"; secret[5] = "C";
+        secret[6] = "U";
     end
 
     // Function to find the position of a character in the table
