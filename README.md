@@ -1,8 +1,13 @@
-Proiect: Implementarea unui sistem de criptare în Verilog
+# Prerequisites
+
+- instalare Vivado
+- creare fisiere in SystemVerilog (.sv)
+
+# Proiect: Implementarea unui sistem de criptare în Verilog
 
 Scopul temei: Scopul acestei teme este să implementați folosind Verilog un sistem de criptare bazat pe un tabel de substituție și un secret.
 
-Obiective:
+## Obiective:
 
 Întărirea abilităților de programare hardware: Dezvoltarea abilității de a implementa și testa un algoritm de criptare folosind Verilog, punând accent pe întrelegerea logicii de criptare și a manipulării datelor.
 
@@ -12,7 +17,7 @@ Testarea și validarea circuitelor digitale: Crearea și utilizarea testbench-ur
 
 Dezvoltarea gândirii algoritmice: Aplicarea unor tehnici de procesare a datelor și calcul matematic pentru a obține rezultate corecte în criptarea și decriptarea mesajelor.
 
-Cerințe:
+## Cerințe:
 
 1. Crearea unui tabel personalizat folosind prenumele:
 
