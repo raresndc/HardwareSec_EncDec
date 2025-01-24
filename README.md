@@ -14,7 +14,7 @@ Dezvoltarea gândirii algoritmice: Aplicarea unor tehnici de procesare a datelor
 
 Cerințe:
 
-Crearea unui tabel personalizat folosind prenumele:
+1. Crearea unui tabel personalizat folosind prenumele:
 
 Se va crea un tabel de substituție de dimensiune 5x5 astfel:
 
@@ -26,7 +26,7 @@ Exemplu pentru MIHAI și litera “J”:
 
 ![alt text](./images/table1.PNG)
 
-Algoritmul de criptare:
+2. Algoritmul de criptare:
 
 Fiecare student va utiliza propriul nume de familie ca secret pentru criptare.
 
@@ -38,13 +38,11 @@ Exemplu pentru secretul „DAN” și textul clar „ISMASE”:
 
 ![alt text](./images/table2.png)
 
-Criptarea și decriptarea:
+3. Criptarea și decriptarea:
 
 ✅ Implementați atât funcționalitatea de criptare, cât și cea de decriptare. Trebuie să creați două module separate: unul pentru criptare și unul pentru decriptare, fiecare având o intrare de text (sau cipher text) și un cuvânt secret, iar rezultatul va fi un mesaj criptat, respectiv decriptat.
 
-Testbench:
-
-Trebuie să creați minim 10 testbench-uri (5 pentru criptare, 5 pentru decriptare) care să acopere următoarele scenarii (secretul va fi mereu același):
+4. Testbench: Trebuie să creați minim 10 testbench-uri (5 pentru criptare, 5 pentru decriptare) care să acopere următoarele scenarii (secretul va fi mereu același):
 
 ✅ Criptarea unei singure litere.
 
@@ -56,10 +54,10 @@ Trebuie să creați minim 10 testbench-uri (5 pentru criptare, 5 pentru decripta
 
 ✅ Mesaj cu litere repetate.
 
-Criptarea literelor mari și mici:
+5. Criptarea literelor mari și mici:
 
 ✅ Adăugați mecanisme pentru a cripta litere mari și mici fără a modifica tabelul personalizat creat la punctul 1. Demonstrați funcționalitatea prin adăugarea de testbench-uri corespunzătoare.
 
-Criptarea caracterelor speciale:
+6. Criptarea caracterelor speciale:
 
 Adăugați mecanisme pentru a cripta și caractere speciale (ex. spațiu, “$”, “#”, etc.). Puteți modifica în orice formă doriți codul dvs. Demonstrați funcționalitatea prin adăugarea de testbench-uri corespunzătoare.
