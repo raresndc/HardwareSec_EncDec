@@ -2,7 +2,7 @@
 
 module tb_enc_dec_long_message;
 
-  parameter MSG_LEN = 22;
+  parameter MSG_LEN = 23;
   parameter SEC_LEN = 7;
 
   logic [7:0] plain_text [0:MSG_LEN-1];
@@ -31,7 +31,7 @@ module tb_enc_dec_long_message;
     plain_text[9] = "I"; plain_text[10] = "S"; plain_text[11] = "A";
     plain_text[12] = "T"; plain_text[13] = "E"; plain_text[14] = "S"; plain_text[15] = "T";
     plain_text[16] = "M"; plain_text[17] = "E"; plain_text[18] = "S"; plain_text[19] = "S";
-    plain_text[20] = "A"; plain_text[21] = "G";
+    plain_text[20] = "A"; plain_text[21] = "G"; ; plain_text[22] = "E";
 
     #10;
 

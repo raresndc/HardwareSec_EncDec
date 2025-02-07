@@ -2,7 +2,7 @@
 
 module tb_word_enc_dec;
 
-  parameter MSG_LEN = 6;
+  parameter MSG_LEN = 5;
   parameter SEC_LEN = 7;
 
   reg [7:0] plain_text [0:MSG_LEN-1];
@@ -33,7 +33,6 @@ module tb_word_enc_dec;
     plain_text[2] = "L";
     plain_text[3] = "L";
     plain_text[4] = "O";
-    plain_text[5] = "W";
 
     #10;
 
