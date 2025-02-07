@@ -1,15 +1,14 @@
 module encryptor #(
-    parameter MSG_LEN,  // Number of characters in the plaintext
-    parameter SEC_LEN   // Length of the key
+    parameter MSG_LEN,
+    parameter SEC_LEN
 )(
-    input  [7:0] text_in[0:MSG_LEN-1], // Plaintext input
-    output reg [7:0] text_out[0:MSG_LEN-1] // Encrypted text output (16 bits to support larger values)
+    input  [7:0] text_in[0:MSG_LEN-1],
+    output reg [7:0] text_out[0:MSG_LEN-1]
 );
 
     reg [7:0] sub_table[1:5][1:5];
-    reg [7:0] secret  [0:SEC_LEN-1];   // Secret key
+    reg [7:0] secret  [0:SEC_LEN-1];
 
-    // Initialize the table and key
     initial begin
         sub_table[1][1] = "R";  sub_table[1][2] = "A";  sub_table[1][3] = "E";  sub_table[1][4] = "S";  sub_table[1][5] = "B";
         sub_table[2][1] = "C";  sub_table[2][2] = "D";  sub_table[2][3] = "F";  sub_table[2][4] = "G";  sub_table[2][5] = "H";
@@ -17,21 +16,19 @@ module encryptor #(
         sub_table[4][1] = "O";  sub_table[4][2] = "P";  sub_table[4][3] = "Q";  sub_table[4][4] = "T";  sub_table[4][5] = "U";
         sub_table[5][1] = "V";  sub_table[5][2] = "W";  sub_table[5][3] = "X";  sub_table[5][4] = "Y";  sub_table[5][5] = "Z";
 
-        // Initialize key
         secret[0] = "N"; secret[1] = "E"; secret[2] = "D";
         secret[3] = "E"; secret[4] = "L"; secret[5] = "C";
         secret[6] = "U";
     end
 
-    // Function to find the position of a character in the table
     function [7:0] get_position(input [7:0] ch);
         integer r, c;
         begin
-            get_position = 8'hFF; // Default invalid value
+            get_position = 8'hFF;
             for (r = 1; r <= 5; r = r + 1) begin
                 for (c = 1; c <= 5; c = c + 1) begin
                     if (sub_table[r][c] == ch) begin
-                        get_position = {r[3:0], c[3:0]}; // Combine row and column into one byte
+                        get_position = {r[3:0], c[3:0]};
                     end
                 end
             end
@@ -49,10 +46,8 @@ module encryptor #(
             c_sec = pos_sec[3:0];
             if ((text_in[i] < "A" || text_in[i] > "Z") &&
                 (text_in[i] < "a" || text_in[i] > "z")) begin
-                // Special character: add ASCII value to key position
                 text_out[i] = text_in[i] + (r_sec * 10 + c_sec);
             end else begin
-                // Normal character: use substitution table
                 pos_text = get_position(text_in[i]);
                 r_text = pos_text[7:4];
                 c_text = pos_text[3:0];

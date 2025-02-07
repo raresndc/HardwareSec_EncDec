@@ -2,14 +2,13 @@
 
 module tb_single_letter;
 
-  parameter MSG_LEN = 1; // Single letter to encrypt and decrypt
-  parameter SEC_LEN = 7; // Length of the key
+  parameter MSG_LEN = 1;
+  parameter SEC_LEN = 7;
 
   logic [7:0] plain_text [0:MSG_LEN-1];
   logic [7:0] encrypted_text [0:MSG_LEN-1];
   logic [7:0] decrypted_text [0:MSG_LEN-1];
 
-  // Instantiate the encryptor module
   encryptor #(
     .MSG_LEN(MSG_LEN),
     .SEC_LEN(SEC_LEN)
@@ -18,7 +17,6 @@ module tb_single_letter;
     .text_out(encrypted_text)
   );
 
-  // Instantiate the decryptor module
   decryptor #(
     .MSG_LEN(MSG_LEN),
     .SEC_LEN(SEC_LEN)
@@ -28,26 +26,21 @@ module tb_single_letter;
   );
 
   initial begin
-    // Initialize the plaintext (single letter "H")
     plain_text[0] = "H";
 
-    // Wait for encryption
     #10;
 
-    // Display encrypted text
     $display("Encrypted single letter:");
     foreach (encrypted_text[i]) begin
-      $write("%0d ", encrypted_text[i]); // Print encrypted numeric value
+      $write("%0d ", encrypted_text[i]);
     end
     $display("");
 
-    // Wait for decryption
     #10;
 
-    // Display decrypted text
     $display("Decrypted single letter:");
     foreach (decrypted_text[i]) begin
-      $write("%c ", decrypted_text[i]); // Print decrypted character
+      $write("%c ", decrypted_text[i]);
     end
     $display("");
 
