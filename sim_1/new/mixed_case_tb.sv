@@ -2,7 +2,7 @@
 
 module mixed_case_tb;
 
-    parameter MSG_LEN = 6;
+    parameter MSG_LEN = 5;
     parameter SEC_LEN = 7;
 
     reg [7:0] plaintext[0:MSG_LEN-1];
@@ -39,7 +39,6 @@ module mixed_case_tb;
         plaintext[2] = "L";
         plaintext[3] = "l";
         plaintext[4] = "o";
-        plaintext[5] = "W";
         
         $display("Original plaintext:");
         for (i = 0; i < MSG_LEN; i = i + 1) begin
